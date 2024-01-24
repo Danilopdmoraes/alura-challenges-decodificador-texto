@@ -1,51 +1,83 @@
+let vogal_a = 'a';
+let vogal_aCripto = 'ai';
+
+let vogal_e = 'e';
+let vogal_eCripto = 'enter';
+
+let vogal_i = 'i';
+let vogal_iCripto = 'imes';
+
+let vogal_o = 'o';
+let vogal_oCripto = 'ober';
+
+let vogal_u = 'u';
+let vogal_uCripto = 'ufat';
+
+
+
+function entrada() {
+    return document.getElementById('entrada').value;
+}
+
+function geraUmArray() {
+    let entrou = entrada();
+    return entrou.split('');
+}
+
+
+
 function cripto() {
 
+    let arrayDeLetras = geraUmArray();
     let saida = document.getElementById('saida');
-    
-    let textoDeEntrada = document.getElementById('entrada').value;
-    let arrayDeLetras = textoDeEntrada.split(''); // cria um array com todas as arrayDeLetras do texto
-
     let contador = 0;
     let tamanhoDoArray = arrayDeLetras.length;
 
+    function criptografar(vogal, vogalCripto) {
+        if (arrayDeLetras[contador] == vogal) {
+            arrayDeLetras[contador] = vogalCripto;
+        }
+    }
 
-    while (contador < tamanhoDoArray) { // percorre letra por letra
+    // let vogal_a = 'a';
+    // let vogal_aCripto = 'ai';
+    
+    // let vogal_e = 'e';
+    // let vogal_eCripto = 'enter';
+
+    // let vogal_i = 'i';
+    // let vogal_iCripto = 'imes';
+
+    // let vogal_o = 'o';
+    // let vogal_oCripto = 'ober';
+
+    // let vogal_u = 'u';
+    // let vogal_uCripto = 'ufat';
+
+    while (contador < tamanhoDoArray) {
         
-        if (arrayDeLetras[contador] == 'a') {
-            arrayDeLetras[contador] = 'ai';
-        } 
-
-        if (arrayDeLetras[contador] == 'e') {
-            arrayDeLetras[contador] = 'enter';
-        }
-
-        if (arrayDeLetras[contador] == 'i') {
-            arrayDeLetras[contador] = 'imes';
-        }
-
-        if (arrayDeLetras[contador] == 'o') {
-            arrayDeLetras[contador] = 'ober';
-        }
-
-        if (arrayDeLetras[contador] == 'u') {
-            arrayDeLetras[contador] = 'ufat';
-        }
-
+        criptografar(vogal_a, vogal_aCripto);
+        criptografar(vogal_e, vogal_eCripto);
+        criptografar(vogal_i, vogal_iCripto);
+        criptografar(vogal_o, vogal_oCripto);
+        criptografar(vogal_u, vogal_uCripto);
         contador++;
     } 
     saida.innerHTML = arrayDeLetras.join('');// aqui estará a saída CRIPTOGRAFADA
+    // saida();
 }
 
 
 
 
 function decripto() {
+
+    let arrayDeLetras = geraUmArray();
+
     let saida = document.getElementById('saida'); // <p>
-    let textoDeEntrada = document.getElementById('entrada').value; // <input>
-    let arrayDeLetras = textoDeEntrada.split(''); // cria um array com todas as letras do texto
     let tamanhoDoArray = arrayDeLetras.length; // tamanho do array
+
     let contador = 0;
-    console.log(tamanhoDoArray);
 
     while(contador < tamanhoDoArray) {
 
@@ -56,10 +88,10 @@ function decripto() {
             if (arrayDeLetras[contador] == 'i') {
                 arrayDeLetras[contador] = '';
                 arrayDeLetras[contador-1] = 'a';
-                console.log(arrayDeLetras[contador]);
             }
         contador-1;
         } 
+
 
         // enter >> e
         if (arrayDeLetras[contador] == 'e') { // 0
