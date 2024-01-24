@@ -1,0 +1,36 @@
+
+body {
+    background-color: #ddffdd;
+}
+
+h1 {
+    font-family: sans-serif;
+    color:  #007700;
+    font-size: 24px;
+}
+
+textarea {
+    height: 400px;
+    width: 400px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #007700;
+}
+
+button {
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: 0px;
+    background-color: #007700;
+    color: white;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+p {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: #009900;
+}
