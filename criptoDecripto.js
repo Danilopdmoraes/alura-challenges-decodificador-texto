@@ -13,58 +13,44 @@ let vogal_oCripto = 'ober';
 let vogal_u = 'u';
 let vogal_uCripto = 'ufat';
 
+let contador = 0;
 
 
 function entrada() {
     return document.getElementById('entrada').value;
 }
 
-function geraUmArray() {
-    let entrou = entrada();
-    return entrou.split('');
+function mostraDecripto() {
+    document.getElementById('saida').innerHTML = decripto();
 }
 
+function mostraCripto() {
+    document.getElementById('saida').innerHTML = cripto();
+}
 
+function geraUmArray(seraGerado) {
+    return seraGerado.split('');
+}
+
+function criptografar(arrayCriptografado, vogal, vogalCripto) {
+    if (arrayCriptografado[contador] == vogal) {
+        arrayCriptografado[contador] = vogalCripto;
+    }
+}
 
 function cripto() {
-
-    let arrayDeLetras = geraUmArray();
-    let saida = document.getElementById('saida');
-    let contador = 0;
+    let arrayDeLetras = geraUmArray(entrada());
     let tamanhoDoArray = arrayDeLetras.length;
-
-    function criptografar(vogal, vogalCripto) {
-        if (arrayDeLetras[contador] == vogal) {
-            arrayDeLetras[contador] = vogalCripto;
-        }
-    }
-
-    // let vogal_a = 'a';
-    // let vogal_aCripto = 'ai';
-    
-    // let vogal_e = 'e';
-    // let vogal_eCripto = 'enter';
-
-    // let vogal_i = 'i';
-    // let vogal_iCripto = 'imes';
-
-    // let vogal_o = 'o';
-    // let vogal_oCripto = 'ober';
-
-    // let vogal_u = 'u';
-    // let vogal_uCripto = 'ufat';
-
     while (contador < tamanhoDoArray) {
-        
-        criptografar(vogal_a, vogal_aCripto);
-        criptografar(vogal_e, vogal_eCripto);
-        criptografar(vogal_i, vogal_iCripto);
-        criptografar(vogal_o, vogal_oCripto);
-        criptografar(vogal_u, vogal_uCripto);
+        criptografar(arrayDeLetras, vogal_a, vogal_aCripto);
+        criptografar(arrayDeLetras, vogal_e, vogal_eCripto);
+        criptografar(arrayDeLetras, vogal_i, vogal_iCripto);
+        criptografar(arrayDeLetras, vogal_o, vogal_oCripto);
+        criptografar(arrayDeLetras, vogal_u, vogal_uCripto);
         contador++;
-    } 
-    saida.innerHTML = arrayDeLetras.join('');// aqui estará a saída CRIPTOGRAFADA
-    // saida();
+    }
+    contador = 0;
+    return arrayDeLetras.join('');
 }
 
 
@@ -72,12 +58,8 @@ function cripto() {
 
 function decripto() {
 
-    let arrayDeLetras = geraUmArray();
-
-    let saida = document.getElementById('saida'); // <p>
-    let tamanhoDoArray = arrayDeLetras.length; // tamanho do array
-
-    let contador = 0;
+    let arrayDeLetras = geraUmArray(entrada());
+    let tamanhoDoArray = arrayDeLetras.length;
 
     while(contador < tamanhoDoArray) {
 
@@ -91,7 +73,6 @@ function decripto() {
             }
         contador-1;
         } 
-
 
         // enter >> e
         if (arrayDeLetras[contador] == 'e') { // 0
@@ -186,5 +167,5 @@ function decripto() {
     contador++;
     }
 
-    saida.innerHTML = arrayDeLetras.join('');// aqui estará a saída CRIPTOGRAFADA
+    return arrayDeLetras.join('');
 }

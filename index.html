@@ -8,19 +8,25 @@
 </head>
 
 <body>
+    <header></header>
 
-    <h1>Alura Challenge</h1>
-    <p>Decodificador de Texto</p>
-    
-    <textarea type="text" id="entrada"></textarea>
+    <main class="apresentacao">
+        <section class="apresentacao__conteudo">
+            <h1 class="apresentacao__conteudo__titulo">Alura Challenge</h1>
+            <p>Decodificador de Texto</p>
+            <textarea type="text" id="entrada"></textarea>
 
-    <p id="saida">O texto criptografado aparecerá aqui!</p>  
-    
+            <p>
+            <button onclick="mostraCripto()">Criptografar!</button>
+            <button onclick="mostraDecripto()">Decriptografar!</button>
+            <!-- <button onclick="">Copiar</button> -->
+            </p>
+        </section>
 
-    <button onclick="cripto()">Criptografar!</button>
-    <button onclick="decripto()">Decriptografar!</button>
-    <button onclick="">Copiar</button>
-    
+        <p id="saida">O texto criptografado aparecerá aqui!</p>  
+    </main>
+
+    <footer></footer>
     <script src="criptoDecripto.js"></script>
 </body>
 </html>
